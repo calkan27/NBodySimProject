@@ -6,7 +6,7 @@ This repository couples a production-grade N-body integrator with the formal mat
 
 ## Formal Proof
 
-* **UnifiedTheoryOfAdaptive-SoftenedN-BodyDynamics.txt** – The typeset manuscript containing the full derivation and theorem statement, proving energy conservation properties and symplectic structure preservation under adaptive softening evolution.
+* **nbody_dynamics_proofs.pdf** – The typeset manuscript containing the full derivation and theorem statement, proving energy conservation properties and symplectic structure preservation under adaptive softening evolution.
 
 ## Quick Start
 
