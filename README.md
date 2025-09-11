@@ -10,7 +10,7 @@ This repository couples a production-grade N-body integrator with the formal mat
 
 ## Quick Start
 
-To run this N-body simulation and ML training pipeline, first install dependencies with `pip install -r requirements.txt`. The main workflow involves three steps:
+To run this N-body simulation and ML training pipeline, the main workflow involves three steps:
 
 1. **Generate N-body simulation data** by running the ML training pipeline which creates diverse initial conditions (hierarchical systems, equal-mass polygons, close encounters) and analyzes their stability over time using multiple metrics (MEGNO, energy drift, escape detection).
 
