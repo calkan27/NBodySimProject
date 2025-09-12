@@ -2,7 +2,7 @@
 
 ## Project Purpose
 
-This repository couples a production-grade N-body integrator with the formal mathematical framework presented in **Unified Theory of Adaptive-Softened N-Body Dynamics**. The project demonstrates a fixed-step, symmetric Strang-split integrator that **conserves linear and angular momentum exactly and bounds the drift of a modified Hamiltonian by O(h²)**—our main theorem.
+This repository couples a production-grade N-body integrator with the formal mathematical framework presented in **Unified Theory of Adaptive-Softened N-Body Dynamics**. The project demonstrates a fixed-step, symmetric Strang-split integrator that **conserves linear and angular momentum exactly and bounds the drift of a modified Hamiltonian by O(h²)**—the main theorem.
 
 ## Formal Proof
 
@@ -26,7 +26,7 @@ The simulation supports multiple integration schemes:
 - **Verlet**: Standard 2nd-order symplectic integrator
 - **Yoshida4**: 4th-order symplectic composition method
 - **WHFast**: Wisdom-Holman for hierarchical systems
-- **ham_soft**: Novel Hamiltonian softening integrator implementing our theoretical framework
+- **ham_soft**: Novel Hamiltonian softening integrator implementing the theoretical framework
 
 ## Usage Examples
 ```python
