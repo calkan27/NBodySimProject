@@ -24,7 +24,7 @@ This repository couples a production-grade N-body integrator with the formal mat
   Rows: 155,042; Cols: 91; Full rows: 130,042; Partial rows: 25,000.
 
 - **Training Data Report (Markdown):** `data/training_data_report.pdf`  
-  A narrative walk-through of completeness, group composition, heavy-tail behavior, resonances, relationships, and the core correlation view—using the same figures under `reports/figures/`.
+  A narrative walk-through of completeness, group composition, heavy-tail behavior, resonances, relationships, and the core correlation.
 
 > Modeling note: keep `meta_partial` as a feature or stratification key; log/rank transforms help with the long-tailed energetic/chaotic features.
 
