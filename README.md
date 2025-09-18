@@ -18,18 +18,25 @@ This repository couples a production-grade N-body integrator with the formal mat
 
 ---
 
-## Data & Attributes
+## Data & Reports
 
-- **Training data (CSV.gz):** `data/training_data_clean.csv.gz`  
-  - Rows: **155,042**; Columns: **91**
-  - “Full” rows: **130,042** (`meta_partial=False`); “Partial” rows: **25,000** (`meta_partial=True`)
-  - Group composition (from `system_id`): `resonant` **113,543**; `random` **25,000**; `TTVsystems` **10,499**; `nonressystems` **6,000**
+- **Dataset:** `data/training_data_clean.csv.gz`  
+  Rows: 155,042; Cols: 91; Full rows: 130,042; Partial rows: 25,000.
 
-- **Attributes report (HTML, single-file):** `reports/TRAINING_DATA_SINGLEFILE.html`  
-  - Bundles core and log-scaled distributions, group breakdowns, and period-ratio visuals.
-  - Use this for quick null checks, tail behavior, and sanity checks on resonant structure.
+- **Training Data Report (Markdown):** `reports/training_data_report.md`  
+  A narrative walk-through of completeness, group composition, heavy-tail behavior, resonances, relationships, and the core correlation view—using the same figures under `reports/figures/`.
 
-> Tip: Keep `meta_partial` in your feature set to enable stratification or targeted imputation. Many features are long-tailed; log transforms or rank-normalizations are appropriate.
+- **Training Data Report (LaTeX):** `reports/training_data_report.tex`  
+  Build a PDF via `latexmk` or your preferred toolchain; figures referenced from `reports/figures/`.
+
+- **Compiled PDF snapshot:** `reports/report.pdf`  
+  Figure references (e.g., Full vs Partial on page 1, Group breakdown on page 2, period-ratio with resonances on page 4, correlation heatmap on page 6) match the Markdown/LaTeX. 
+
+- **CSV attachments:**  
+  `reports/metrics_summary.csv`, `reports/fill_ratios.csv`, `reports/plausibility_checks.csv`
+
+> Modeling note: keep `meta_partial` as a feature or stratification key; log/rank transforms help with the long-tailed energetic/chaotic features.
+
 
 ---
 
