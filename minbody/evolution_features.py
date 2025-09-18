@@ -1,3 +1,16 @@
+"""
+This module computes time-evolution features that characterize the dynamical stability
+of N-body systems.
+
+The EvolutionFeatures class calculates the MEGNO (Mean Exponential Growth of Nearby
+Orbits) chaos indicator through variational equation integration, estimates Lyapunov
+time from MEGNO convergence, and combines static dynamical features with evolution
+metrics. The compute_megno method integrates tangent space perturbations to measure
+trajectory divergence rates, while extract_evolution_features provides a focused subset
+for ML applications. The module assumes access to a valid simulation state and uses the
+TangentMap for variational dynamics calculations.
+"""
+
 import math
 import numpy as np
 from typing import Dict
@@ -5,11 +18,7 @@ from .diagnostics import Diagnostics
 from .dynamical_features import DynamicalFeatures
 from .tangent_map import TangentMap
 
-"""
-This module computes time-evolution features that characterize the dynamical stability of N-body systems. The EvolutionFeatures class calculates the MEGNO (Mean Exponential Growth of Nearby Orbits) chaos indicator through variational equation integration, estimates Lyapunov time from MEGNO convergence, and combines static dynamical features with evolution metrics. The compute_megno method integrates tangent space perturbations to measure trajectory divergence rates, while extract_evolution_features provides a focused subset for ML applications. The module assumes access to a valid simulation state and uses the TangentMap for variational dynamics calculations.
 
-
-"""
 
 
 

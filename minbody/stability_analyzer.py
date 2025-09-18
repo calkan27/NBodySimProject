@@ -1,3 +1,16 @@
+"""
+This comprehensive module analyzes the long-term stability of N-body systems.
+
+The StabilityAnalyzer class computes stability metrics through time integration,
+including energy and angular momentum conservation, trajectory boundedness and escape
+detection, MEGNO chaos indicators, and Lyapunov time estimates. It supports multiple
+analysis modes (minimal, core, full) with increasing detail levels, generates feature
+vectors for ML training, and provides detailed diagnostic output. The analyzer
+integrates systems forward in time while monitoring conserved quantities and dynamical
+indicators. It assumes simulations are properly configured with consistent timesteps and
+sufficient integration time for meaningful statistics.
+"""
+
 import numpy as np
 import pandas as pd
 from typing import Dict, Tuple, List
@@ -7,12 +20,7 @@ from .diagnostics import Diagnostics
 from .dynamical_features import DynamicalFeatures
 from .evolution_features import EvolutionFeatures
 
-"""
-This comprehensive module analyzes the long-term stability of N-body systems. The StabilityAnalyzer class computes stability metrics through time integration, including energy and angular momentum conservation, trajectory boundedness and escape detection, MEGNO chaos indicators, and Lyapunov time estimates. It supports multiple analysis modes (minimal, core, full) with increasing detail levels, generates feature vectors for ML training, and provides detailed diagnostic output. The analyzer integrates systems forward in time while monitoring conserved quantities and dynamical indicators. It assumes simulations are properly configured with consistent timesteps and sufficient integration time for meaningful statistics.
 
-
-
-"""
 
 def _effective_n_steps(dt: float, t_target: float, n_steps_user: int) -> int:
 	return max(n_steps_user, int(np.ceil(t_target / dt)))

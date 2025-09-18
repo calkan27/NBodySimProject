@@ -1,3 +1,15 @@
+"""
+This abstract base class defines the interface for numerical integration schemes.
+
+The IntegrationScheme class provides common functionality including
+flag_positions_changed for cache invalidation, drift for position updates, kick for
+velocity updates, ensure_buffer for efficient array allocation, and method stubs for
+specific integration algorithms. It serves as the foundation for Verlet, Yoshida4, and
+WHFast implementations, managing shared resources like geometric buffers and
+acceleration caches. The class assumes the parent integrator maintains valid simulation
+references and array allocations.
+"""
+
 from __future__ import annotations
 import math
 from typing import Tuple, TYPE_CHECKING
@@ -6,11 +18,7 @@ import numpy as np
 if TYPE_CHECKING:
     from .integrator import Integrator
 
-"""
-This abstract base class defines the interface for numerical integration schemes. The IntegrationScheme class provides common functionality including flag_positions_changed for cache invalidation, drift for position updates, kick for velocity updates, ensure_buffer for efficient array allocation, and method stubs for specific integration algorithms. It serves as the foundation for Verlet, Yoshida4, and WHFast implementations, managing shared resources like geometric buffers and acceleration caches. The class assumes the parent integrator maintains valid simulation references and array allocations.
 
-
-"""
 
 class IntegrationScheme:
 	def __init__(self, integrator: "Integrator") -> None:

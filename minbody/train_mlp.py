@@ -1,3 +1,15 @@
+"""
+This module implements neural network training for stability prediction.
+
+The MLPTrainer class manages the complete training pipeline including data loading and
+preprocessing with StandardScaler, model training with early stopping and validation
+monitoring, optimal threshold selection using Youden's index, comprehensive evaluation
+metrics, and model serialization with metadata. The implementation uses PyTorch with GPU
+support when available, includes dropout regularization to prevent overfitting, and
+maintains training history for analysis. It assumes CUDA-compatible hardware for optimal
+performance and sufficient data for train/validation/test splits.
+"""
+
 import numpy as np
 import torch
 import torch.nn as nn
@@ -12,11 +24,7 @@ from .data_utils import DataUtils
 from .model_zoo import make_mlp
 from .utils import set_global_seed
 
-"""
-This module implements neural network training for stability prediction. The MLPTrainer class manages the complete training pipeline including data loading and preprocessing with StandardScaler, model training with early stopping and validation monitoring, optimal threshold selection using Youden's index, comprehensive evaluation metrics, and model serialization with metadata. The implementation uses PyTorch with GPU support when available, includes dropout regularization to prevent overfitting, and maintains training history for analysis. It assumes CUDA-compatible hardware for optimal performance and sufficient data for train/validation/test splits.
 
-
-"""
 
 class MLPTrainer:
 	def __init__(self, csv_path="stability_data.csv", device=None):

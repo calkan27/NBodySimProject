@@ -1,15 +1,23 @@
+"""
+This module extracts physics-based features from N-body configurations for machine
+learning applications.
+
+The DynamicalFeatures class computes comprehensive metrics including mass distribution
+statistics (total mass, variance, max ratio, center offset), pairwise distances
+(mean/std separation, min/max distances, separation ratios), velocity characteristics
+(mean/max speeds, relative velocities), energy components (kinetic, potential, virial
+ratio, binding state), angular momentum properties (total, specific, variance), and
+softening parameter statistics from the manager's history. The extract_all method
+combines all features into a dictionary suitable for ML pipelines. The module assumes
+the simulation is in a valid state with accessible position, velocity, and mass arrays.
+"""
+
 import numpy as np
 from typing import Dict
 from .simulation import NBodySimulation
 from .diagnostics import Diagnostics
 
-"""
-This module extracts physics-based features from N-body configurations for machine learning applications. The DynamicalFeatures class computes comprehensive metrics including mass distribution statistics (total mass, variance, max ratio, center offset), pairwise distances (mean/std separation, min/max distances, separation ratios), velocity characteristics (mean/max speeds, relative velocities), energy components (kinetic, potential, virial ratio, binding state), angular momentum properties (total, specific, variance), and softening parameter statistics from the manager's history. The extract_all method combines all features into a dictionary suitable for ML pipelines. The module assumes the simulation is in a valid state with accessible position, velocity, and mass arrays.
 
-
-
-
-"""
 
 class DynamicalFeatures:
 	def __init__(self, sim: NBodySimulation):

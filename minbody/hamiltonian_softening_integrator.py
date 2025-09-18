@@ -1,3 +1,20 @@
+"""
+" This advanced integrator implements a symplectic integration scheme for N-body systems
+with adaptive softening as a Hamiltonian degree of freedom.
+
+The HamiltonianSofteningIntegrator extends the base Integrator with epsilon (softening)
+and pi (conjugate momentum) as dynamical variables, implements Strang splitting for the
+coupled particle-softening dynamics, includes spring potentials to guide epsilon toward
+optimal values, supports both soft barrier and reflection boundary conditions, and
+provides extensive calibration methods for the effective mass mu_soft. The integrator
+uses multiple internal classes (HamSoftParams, EpsilonModel, HamSoftBarrier,
+HamSoftStepper) to organize functionality. It maintains detailed diagnostics of the
+extended phase space evolution and carefully manages the interplay between gravitational
+dynamics and softening evolution. The implementation assumes the simulation uses
+compatible configuration settings and that the softening degree of freedom is physically
+meaningful for the system.
+"""
+
 from __future__ import annotations
 import math
 import numpy as np
@@ -15,11 +32,7 @@ from .forces import gravitational_force
 from .forces import dV_d_epsilon as _dVdeps
 from .hamsoft_flows import s_flow as _s_flow
 
-""""
-This advanced integrator implements a symplectic integration scheme for N-body systems with adaptive softening as a Hamiltonian degree of freedom. The HamiltonianSofteningIntegrator extends the base Integrator with epsilon (softening) and pi (conjugate momentum) as dynamical variables, implements Strang splitting for the coupled particle-softening dynamics, includes spring potentials to guide epsilon toward optimal values, supports both soft barrier and reflection boundary conditions, and provides extensive calibration methods for the effective mass mu_soft. The integrator uses multiple internal classes (HamSoftParams, EpsilonModel, HamSoftBarrier, HamSoftStepper) to organize functionality. It maintains detailed diagnostics of the extended phase space evolution and carefully manages the interplay between gravitational dynamics and softening evolution. The implementation assumes the simulation uses compatible configuration settings and that the softening degree of freedom is physically meaningful for the system.
 
-
-"""
 
 
 

@@ -1,11 +1,21 @@
+"""
+This central configuration module defines all simulation parameters through the
+SimConfig dataclass.
+
+Key parameters include safety factors for adaptive timestepping, spring constants for
+Hamiltonian softening, integrator mode selection, barrier potential settings, and
+convergence tolerances. The class provides a copy method for configuration inheritance
+and validates integrator modes against allowed options. It serves as the single source
+of truth for simulation behavior, with all components referencing this configuration.
+The module assumes reasonable default values and that users understand the physical
+implications of parameter choices.
+"""
+
 from __future__ import annotations
 from dataclasses import dataclass, field, replace
 import copy
 
-"""
-This central configuration module defines all simulation parameters through the SimConfig dataclass. Key parameters include safety factors for adaptive timestepping, spring constants for Hamiltonian softening, integrator mode selection, barrier potential settings, and convergence tolerances. The class provides a copy method for configuration inheritance and validates integrator modes against allowed options. It serves as the single source of truth for simulation behavior, with all components referencing this configuration. The module assumes reasonable default values and that users understand the physical implications of parameter choices.
 
-"""
 _ALLOWED_MODES = {
     "verlet",
     "yoshida4",

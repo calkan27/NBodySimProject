@@ -1,13 +1,22 @@
+"""
+This module computes the extended Hamiltonian for systems with dynamical softening.
+
+The extended_hamiltonian function calculates the total energy including particle kinetic
+energy, Plummer-softened gravitational potential, spring potential for epsilon
+confinement, softening kinetic energy from pi, and optional barrier potentials. The
+implementation handles all boundary conditions and integrator policies, dynamically
+determines epsilon_star if not provided, and validates all energy components for
+finiteness. It serves as the conserved quantity for the Hamiltonian softening integrator
+and assumes the phase state contains valid positions, momenta, and softening variables.
+"""
+
 from __future__ import annotations
 import numpy as np
 
 from .hamsoft_flows import PhaseState
 from .barrier import barrier_energy
 
-"""
-This module computes the extended Hamiltonian for systems with dynamical softening. The extended_hamiltonian function calculates the total energy including particle kinetic energy, Plummer-softened gravitational potential, spring potential for epsilon confinement, softening kinetic energy from pi, and optional barrier potentials. The implementation handles all boundary conditions and integrator policies, dynamically determines epsilon_star if not provided, and validates all energy components for finiteness. It serves as the conserved quantity for the Hamiltonian softening integrator and assumes the phase state contains valid positions, momenta, and softening variables.
 
-"""
 
 
 

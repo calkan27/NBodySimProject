@@ -1,13 +1,22 @@
+"""
+This module implements adaptive models for the optimal softening parameter epsilon_star.
+
+The EpsilonModel class provides multiple strategies including SPH-inspired kernel
+density estimation for particle-based epsilon, iterative solver for smoothing length
+determination, gradient computation via finite differences or analytical expressions,
+and legacy compatibility modes. The model calibrates from initial conditions to set
+appropriate bounds and scaling, supports both production and validation modes with
+different algorithms, and maintains internal state for efficient repeated evaluations.
+It assumes access to particle positions and masses and integrates deeply with the
+gradient-based forces in the Hamiltonian formulation.
+"""
+
 from __future__ import annotations
 import numpy as np
 from .hamsoft_constants import LAMBDA_SOFTENING as _LAM_SOFT
 from .softening import grad_eps_target as _grad_ss, eps_target as _eps_target_ss
 
-"""
-This module implements adaptive models for the optimal softening parameter epsilon_star. The EpsilonModel class provides multiple strategies including SPH-inspired kernel density estimation for particle-based epsilon, iterative solver for smoothing length determination, gradient computation via finite differences or analytical expressions, and legacy compatibility modes. The model calibrates from initial conditions to set appropriate bounds and scaling, supports both production and validation modes with different algorithms, and maintains internal state for efficient repeated evaluations. It assumes access to particle positions and masses and integrates deeply with the gradient-based forces in the Hamiltonian formulation.
 
-
-"""
 
 
 

@@ -1,3 +1,14 @@
+"""
+This module computes optimal softening parameters based on particle distributions.
+
+Key functions include eps_target which calculates softening using harmonic mean neighbor
+distances, and grad_eps_target which provides gradients for force calculations. The
+implementation uses efficient numpy operations for pairwise distance calculations and
+includes careful handling of numerical edge cases. The module supports both static and
+gradient-based adaptive softening schemes and assumes 2D particle positions with
+sufficient neighbor density.
+"""
+
 from __future__ import annotations
 import math
 from typing import Final, Tuple
@@ -7,15 +18,7 @@ import numpy as np
 from .hamsoft_constants import LAMBDA_SOFTENING as _LAM_SOFT
 
 __all__ = ["grad_eps_target", "eps_target"]
-"""This module computes optimal softening parameters based on particle distributions.
 
-Key functions include eps_target which calculates softening using harmonic mean neighbor
-distances, and grad_eps_target which provides gradients for force calculations. The
-implementation uses efficient numpy operations for pairwise distance calculations and
-includes careful handling of numerical edge cases. The module supports both static and
-gradient-based adaptive softening schemes and assumes 2D particle positions with
-sufficient neighbor density.
-"""
 
 
 

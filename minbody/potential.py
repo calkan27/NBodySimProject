@@ -1,12 +1,21 @@
+"""
+This module computes gravitational potentials and their derivatives for N-body systems.
+
+The softened_potential function calculates the total Plummer-softened gravitational
+potential energy, while dU_d_eps computes the derivative with respect to the softening
+parameter. Both functions use efficient numpy operations for pairwise interactions,
+handle edge cases like single particles or zero gravity, and maintain numerical
+stability through careful distance calculations. The module supports the energy
+conservation machinery in adaptive softening schemes. It assumes 2D positions and
+positive masses.
+"""
+
 from __future__ import annotations
 import numpy as np
 from numpy.typing import NDArray
 from .forces import dV_d_epsilon as _dVdeps
 
-"""
-This module computes gravitational potentials and their derivatives for N-body systems. The softened_potential function calculates the total Plummer-softened gravitational potential energy, while dU_d_eps computes the derivative with respect to the softening parameter. Both functions use efficient numpy operations for pairwise interactions, handle edge cases like single particles or zero gravity, and maintain numerical stability through careful distance calculations. The module supports the energy conservation machinery in adaptive softening schemes. It assumes 2D positions and positive masses.
 
-"""
 
 __all__ = ["softened_potential", "dU_d_eps"]
 

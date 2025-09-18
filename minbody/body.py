@@ -1,4 +1,5 @@
-"""This module defines the Body class, a simple data container for individual celestial
+"""
+This module defines the Body class, a simple data container for individual celestial
 bodies in the simulation.
 
 The class stores fundamental properties (mass, position x/y, velocity vx/vy) as

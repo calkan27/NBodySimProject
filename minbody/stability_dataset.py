@@ -1,11 +1,19 @@
+"""
+This module handles dataset I/O for machine learning pipelines.
+
+The StabilityDataset class provides methods to load feature matrices and labels from CSV
+files, extract feature names and scaler metadata from headers, handle missing values and
+validate data consistency, and reconstruct preprocessing pipelines from saved
+information. The implementation supports the complete ML workflow from data generation
+through model deployment. It assumes CSV files follow the expected format with proper
+headers and metadata encoding.
+"""
+
 import numpy as np
 import pandas as pd
 from typing import Tuple, List, Dict
 
-"""
-This module handles dataset I/O for machine learning pipelines. The StabilityDataset class provides methods to load feature matrices and labels from CSV files, extract feature names and scaler metadata from headers, handle missing values and validate data consistency, and reconstruct preprocessing pipelines from saved information. The implementation supports the complete ML workflow from data generation through model deployment. It assumes CSV files follow the expected format with proper headers and metadata encoding.
 
-"""
 
 class StabilityDataset:
     

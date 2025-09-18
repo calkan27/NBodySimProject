@@ -1,3 +1,15 @@
+"""
+This module implements gradient boosting model training for stability prediction.
+
+The main function loads datasets using StabilityDataset utilities, performs
+hyperparameter tuning via grid search with cross-validation, trains LightGBM models with
+optimal parameters, evaluates performance metrics (accuracy, precision, recall, F1,
+AUROC), and saves trained models and preprocessors. The implementation leverages
+LightGBM's efficiency for tabular data while maintaining scikit-learn compatibility. It
+assumes properly formatted input data and sufficient samples for meaningful cross-
+validation.
+"""
+
 import numpy as np
 import pandas as pd
 import pickle
@@ -9,10 +21,7 @@ from .stability_dataset import StabilityDataset
 from .data_utils import DataUtils
 from .utils import set_global_seed
 
-"""
-This module implements gradient boosting model training for stability prediction. The main function loads datasets using StabilityDataset utilities, performs hyperparameter tuning via grid search with cross-validation, trains LightGBM models with optimal parameters, evaluates performance metrics (accuracy, precision, recall, F1, AUROC), and saves trained models and preprocessors. The implementation leverages LightGBM's efficiency for tabular data while maintaining scikit-learn compatibility. It assumes properly formatted input data and sufficient samples for meaningful cross-validation.
 
-"""
 
 
 def main():

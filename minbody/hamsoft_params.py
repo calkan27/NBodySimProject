@@ -1,11 +1,20 @@
+"""
+This module manages parameters for the Hamiltonian softening integrator through the
+HamSoftParams dataclass.
+
+It handles configuration inheritance from SimConfig, provides properties with validation
+and schedule refresh triggers, maintains defaults for k_soft, mu_soft, chi_eps, k_wall,
+and barrier_exponent, and coordinates parameter updates with the timestep scheduler. The
+implementation ensures parameter changes properly trigger recalibration of derived
+quantities like substep counts. It assumes the parent integrator maintains valid
+references to the simulation and configuration objects.
+"""
+
 from __future__ import annotations
 import numpy as np
 from dataclasses import dataclass
 
-"""
-This module manages parameters for the Hamiltonian softening integrator through the HamSoftParams dataclass. It handles configuration inheritance from SimConfig, provides properties with validation and schedule refresh triggers, maintains defaults for k_soft, mu_soft, chi_eps, k_wall, and barrier_exponent, and coordinates parameter updates with the timestep scheduler. The implementation ensures parameter changes properly trigger recalibration of derived quantities like substep counts. It assumes the parent integrator maintains valid references to the simulation and configuration objects.
 
-"""
 
 
 

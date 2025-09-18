@@ -1,14 +1,23 @@
+"""
+This module implements BodyView, a proxy class providing Body-like access to individual
+particles stored in the simulation's numpy arrays.
+
+The class uses properties with getters and setters to map attribute access (mass, x, y,
+vx, vy) directly to the appropriate array indices in the parent simulation, maintaining
+the same interface as Body while operating on the efficient array storage. This design
+allows intuitive particle manipulation without data copying, bridging the gap between
+user-friendly object notation and performance-critical array operations. The view
+assumes the parent simulation maintains valid array structures and that the body index
+remains within bounds.
+"""
+
 from __future__ import annotations
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .simulation import NBodySimulation
 
 
-"""
-This module implements BodyView, a proxy class providing Body-like access to individual particles stored in the simulation's numpy arrays. The class uses properties with getters and setters to map attribute access (mass, x, y, vx, vy) directly to the appropriate array indices in the parent simulation, maintaining the same interface as Body while operating on the efficient array storage. This design allows intuitive particle manipulation without data copying, bridging the gap between user-friendly object notation and performance-critical array operations. The view assumes the parent simulation maintains valid array structures and that the body index remains within bounds.
 
-
-"""
 
 class BodyView:
 	__slots__ = ("_sim", "_i")

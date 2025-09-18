@@ -1,11 +1,18 @@
+"""
+This utility module provides tools for feature scaling in ML pipelines.
+
+The ScalerUtils class offers rebuild_scaler to reconstruct StandardScaler objects from
+saved metadata, enabling proper feature normalization during inference. The
+implementation handles missing or incomplete scaler information gracefully and maintains
+compatibility with scikit-learn's preprocessing pipeline. It assumes scaler metadata
+includes mean and scale arrays with matching dimensions.
+"""
+
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 from typing import Dict
 
-"""
-This utility module provides tools for feature scaling in ML pipelines. The ScalerUtils class offers rebuild_scaler to reconstruct StandardScaler objects from saved metadata, enabling proper feature normalization during inference. The implementation handles missing or incomplete scaler information gracefully and maintains compatibility with scikit-learn's preprocessing pipeline. It assumes scaler metadata includes mean and scale arrays with matching dimensions.
 
-"""
 
 class ScalerUtils:
 

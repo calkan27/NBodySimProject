@@ -1,11 +1,20 @@
+"""
+This module provides specialized initial condition generators for specific N-body
+configurations.
+
+The SpecializedGenerators class offers static methods for hierarchical triple systems
+with configurable mass and separation ratios, equal-mass polygon configurations with
+rotation, and other specialized test cases. These generators produce well-defined,
+reproducible configurations useful for testing and validation. Each generator ensures
+momentum conservation and appropriate scaling of velocities for orbital stability. The
+module assumes generated systems will be used for stability analysis and ML training.
+"""
+
 import numpy as np
 from typing import Tuple
 from .physics_utils import remove_center_of_mass_velocity
 
-"""
-This module provides specialized initial condition generators for specific N-body configurations. The SpecializedGenerators class offers static methods for hierarchical triple systems with configurable mass and separation ratios, equal-mass polygon configurations with rotation, and other specialized test cases. These generators produce well-defined, reproducible configurations useful for testing and validation. Each generator ensures momentum conservation and appropriate scaling of velocities for orbital stability. The module assumes generated systems will be used for stability analysis and ML training.
 
-"""
 
 
 class SpecializedGenerators:

@@ -1,3 +1,19 @@
+"""
+This module provides batch processing capabilities for analyzing the stability of
+multiple N-body simulations efficiently.
+
+The BatchStabilityAnalyzer class wraps StabilityAnalyzer to process lists of
+simulations, collecting stability metrics into pandas DataFrames for analysis. The
+analyze_simulation method runs individual stability analysis with energy drift detection
+and pathological case flagging, analyze_batch processes multiple simulations with
+progress reporting, save_batch_results exports results to CSV format, and
+get_feature_matrix extracts features as numpy arrays for ML training. The analyzer
+tracks softening policies (static/adaptive/adaptive-ham) and detects extreme energy
+drift cases that indicate numerical instability. It assumes simulations are pre-
+configured and ready to run, with consistent timestep and integration parameters across
+the batch.
+"""
+
 import numpy as np
 import pandas as pd
 import datetime
@@ -5,11 +21,7 @@ from typing import List, Dict
 from .simulation import NBodySimulation
 from .stability_analyzer import StabilityAnalyzer
 
-"""
-This module provides batch processing capabilities for analyzing the stability of multiple N-body simulations efficiently. The BatchStabilityAnalyzer class wraps StabilityAnalyzer to process lists of simulations, collecting stability metrics into pandas DataFrames for analysis. The analyze_simulation method runs individual stability analysis with energy drift detection and pathological case flagging, analyze_batch processes multiple simulations with progress reporting, save_batch_results exports results to CSV format, and get_feature_matrix extracts features as numpy arrays for ML training. The analyzer tracks softening policies (static/adaptive/adaptive-ham) and detects extreme energy drift cases that indicate numerical instability. It assumes simulations are pre-configured and ready to run, with consistent timestep and integration parameters across the batch.
 
-
-"""
 
 
 

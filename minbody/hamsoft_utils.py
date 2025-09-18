@@ -1,3 +1,16 @@
+"""
+This utility module provides helper functions for the Hamiltonian softening
+implementation.
+
+Key functions include symplectic_bounce for exact reflection dynamics at barriers,
+reflect_if_needed for periodic boundary normalization, dU_depsilon_plummer as a wrapper
+for potential derivatives, and high-precision summation methods for energy conservation.
+The module ensures numerical stability through careful handling of boundary cases and
+provides both exact and approximate solutions for reflection dynamics. It assumes
+floating-point inputs and maintains compatibility with numpy's extended precision types
+when available.
+"""
+
 from __future__ import annotations
 from numpy.typing import NDArray
 import math
@@ -6,11 +19,7 @@ from typing import Tuple
 import numpy as np
 from .forces import dV_d_epsilon  
 
-"""
-This utility module provides helper functions for the Hamiltonian softening implementation. Key functions include symplectic_bounce for exact reflection dynamics at barriers, reflect_if_needed for periodic boundary normalization, dU_depsilon_plummer as a wrapper for potential derivatives, and high-precision summation methods for energy conservation. The module ensures numerical stability through careful handling of boundary cases and provides both exact and approximate solutions for reflection dynamics. It assumes floating-point inputs and maintains compatibility with numpy's extended precision types when available.
 
-
-"""
 
 
 

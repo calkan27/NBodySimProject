@@ -1,9 +1,16 @@
+"""
+This module computes variational dynamics for chaos analysis in N-body systems.
+
+The TangentMap class calculates variational accelerations for trajectory perturbations
+using the Jacobian of gravitational forces, supporting MEGNO and Lyapunov exponent
+calculations. The implementation efficiently handles the tensor operations required for
+tangent space evolution and properly accounts for softening in force derivatives. It
+assumes access to current positions and accelerations from the parent simulation.
+"""
+
 import numpy as np
 
-"""
-This module computes variational dynamics for chaos analysis in N-body systems. The TangentMap class calculates variational accelerations for trajectory perturbations using the Jacobian of gravitational forces, supporting MEGNO and Lyapunov exponent calculations. The implementation efficiently handles the tensor operations required for tangent space evolution and properly accounts for softening in force derivatives. It assumes access to current positions and accelerations from the parent simulation.
 
-"""
 
 
 class TangentMap:

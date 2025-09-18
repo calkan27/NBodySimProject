@@ -1,3 +1,14 @@
+"""
+This module provides validation tests for the Hamiltonian softening integrator.
+
+The validate_ham_soft function verifies energy conservation within tolerance bounds,
+checks canonical equation consistency, tests equilibrium behavior with zero forces, and
+monitors pi drift at stable points. The validation creates temporary simulation copies
+to avoid state corruption, uses extended precision for accurate energy calculations, and
+provides detailed error messages for debugging. It assumes the integrator is properly
+initialized and the simulation is in a valid state for testing.
+"""
+
 import time
 from typing import TYPE_CHECKING
 
@@ -9,11 +20,7 @@ if TYPE_CHECKING:
 	from .simulation import NBodySimulation
 
 
-"""
-This module provides validation tests for the Hamiltonian softening integrator. The validate_ham_soft function verifies energy conservation within tolerance bounds, checks canonical equation consistency, tests equilibrium behavior with zero forces, and monitors pi drift at stable points. The validation creates temporary simulation copies to avoid state corruption, uses extended precision for accurate energy calculations, and provides detailed error messages for debugging. It assumes the integrator is properly initialized and the simulation is in a valid state for testing.
 
-
-"""
 
 
 

@@ -1,13 +1,21 @@
+"""
+This module defines physical and numerical constants for the Hamiltonian softening
+scheme.
+
+It includes LAMBDA_SOFTENING for controlling softening length scales (with environment
+variable override support), CHI_EPS for momentum damping coefficients, and
+LAMBDA_SIGMA_STAR as an alias for compatibility. The module provides centralized
+constant management with sensible defaults while allowing runtime configuration through
+environment variables. It assumes constants are used consistently across the ham_soft
+subsystem.
+"""
+
 from __future__ import annotations
 
 import os
 from typing import Final
 
-"""
-This module defines physical and numerical constants for the Hamiltonian softening scheme. It includes LAMBDA_SOFTENING for controlling softening length scales (with environment variable override support), CHI_EPS for momentum damping coefficients, and LAMBDA_SIGMA_STAR as an alias for compatibility. The module provides centralized constant management with sensible defaults while allowing runtime configuration through environment variables. It assumes constants are used consistently across the ham_soft subsystem.
 
-
-"""
 
 
 

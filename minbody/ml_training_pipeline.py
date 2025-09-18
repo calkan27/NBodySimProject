@@ -1,3 +1,17 @@
+"""
+This module orchestrates the complete machine learning workflow for stability
+prediction.
+
+The MLTrainingPipeline class generates diverse N-body datasets with multiple system
+types (random, hierarchical, polygon, close encounters), runs stability analysis on
+generated systems, produces labeled datasets for ML training, and supports both diverse
+and focused dataset generation strategies. Methods include generate_diverse_dataset for
+comprehensive training data, generate_focused_dataset for specific stability regimes,
+and quick_test_pipeline for rapid validation. The pipeline integrates all components
+from initial condition generation through stability analysis to dataset creation. It
+assumes sufficient computational resources for batch simulation processing.
+"""
+
 import numpy as np
 import pandas as pd
 from typing import List, Tuple, Dict
@@ -11,10 +25,7 @@ from .stability_analyzer import StabilityAnalyzer
 from .batch_stability_analyzer import BatchStabilityAnalyzer
 from .utils import set_global_seed
 
-"""
-This module orchestrates the complete machine learning workflow for stability prediction. The MLTrainingPipeline class generates diverse N-body datasets with multiple system types (random, hierarchical, polygon, close encounters), runs stability analysis on generated systems, produces labeled datasets for ML training, and supports both diverse and focused dataset generation strategies. Methods include generate_diverse_dataset for comprehensive training data, generate_focused_dataset for specific stability regimes, and quick_test_pipeline for rapid validation. The pipeline integrates all components from initial condition generation through stability analysis to dataset creation. It assumes sufficient computational resources for batch simulation processing.
 
-"""
 
 class MLTrainingPipeline:
 	def __init__(self, n_systems: int = 1000, n_steps: int = 1000, dt: float = 0.01):

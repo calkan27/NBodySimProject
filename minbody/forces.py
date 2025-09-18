@@ -1,13 +1,23 @@
+"""
+This module implements gravitational force calculations with softening for close
+encounter handling.
+
+The gravitational_force function computes pairwise Plummer-softened gravitational forces
+using optimized numpy operations, while dV_d_epsilon calculates the derivative of
+potential energy with respect to the softening parameter. The module uses
+geometry_buffers for efficient distance calculations, handles edge cases like zero
+gravity or single particles, and maintains numerical stability through careful infinity
+handling in distance matrices. The softened_forces function provides an alternative
+interface with explicit array type checking. All functions assume 2D position arrays and
+positive masses.
+"""
+
 from __future__ import annotations
 import numpy as np
 from .geometry_cache import geometry_buffers
 from numpy.typing import NDArray
 
-"""
-This module implements gravitational force calculations with softening for close encounter handling. The gravitational_force function computes pairwise Plummer-softened gravitational forces using optimized numpy operations, while dV_d_epsilon calculates the derivative of potential energy with respect to the softening parameter. The module uses geometry_buffers for efficient distance calculations, handles edge cases like zero gravity or single particles, and maintains numerical stability through careful infinity handling in distance matrices. The softened_forces function provides an alternative interface with explicit array type checking. All functions assume 2D position arrays and positive masses.
 
-
-"""
 
 
 

@@ -1,3 +1,15 @@
+"""
+This module implements adaptive timestep control for numerical stability.
+
+The TimestepManager class determines substep counts based on multiple criteria including
+gravitational timescales from particle separations, harmonic oscillator periods for
+softening dynamics, momentum-based epsilon drift limits, and gradient-based impulse
+constraints. It provides methods for initial schedule calculation, runtime stability
+enforcement, and minimum separation prediction. The implementation balances accuracy
+requirements with computational efficiency through intelligent step subdivision. It
+assumes access to current simulation state and force calculations.
+"""
+
 from __future__ import annotations
 import math
 from typing import TYPE_CHECKING
@@ -8,10 +20,7 @@ if TYPE_CHECKING:
 
 
 
-"""
-This module implements adaptive timestep control for numerical stability. The TimestepManager class determines substep counts based on multiple criteria including gravitational timescales from particle separations, harmonic oscillator periods for softening dynamics, momentum-based epsilon drift limits, and gradient-based impulse constraints. It provides methods for initial schedule calculation, runtime stability enforcement, and minimum separation prediction. The implementation balances accuracy requirements with computational efficiency through intelligent step subdivision. It assumes access to current simulation state and force calculations.
 
-"""
 
 class TimestepManager:
 

@@ -1,12 +1,21 @@
+"""
+This module implements Kepler's equation solver using Stiefel-Scheifele universal
+variables.
+
+The UniversalVariableKeplerSolver class provides exact two-body orbital propagation
+through the propagate method using iterative Newton-Raphson solution, Stumpff
+C-functions for numerical stability, and support for all orbit types (elliptic,
+parabolic, hyperbolic). The implementation is crucial for the WHFast integrator's Kepler
+drift operations and maintains high accuracy through careful numerical formulations. It
+assumes Newtonian gravity and handles both single particle and array inputs.
+"""
+
 from __future__ import annotations
 import math 
 import numpy as np
 from numpy import logaddexp, exp
 
-"""
-This module implements Kepler's equation solver using Stiefel-Scheifele universal variables. The UniversalVariableKeplerSolver class provides exact two-body orbital propagation through the propagate method using iterative Newton-Raphson solution, Stumpff C-functions for numerical stability, and support for all orbit types (elliptic, parabolic, hyperbolic). The implementation is crucial for the WHFast integrator's Kepler drift operations and maintains high accuracy through careful numerical formulations. It assumes Newtonian gravity and handles both single particle and array inputs.
 
-"""
 
 
 

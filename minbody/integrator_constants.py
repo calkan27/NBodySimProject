@@ -1,14 +1,22 @@
+"""
+This module centralizes numerical constants and configuration defaults for the
+integration subsystem.
+
+The IntegratorConstants class uses a metaclass to provide attribute access with fallback
+values, sources defaults from SimConfig, and defines critical parameters like
+SPLIT_N_MAX, INITIAL_DT, SAFETY_FACTOR, and barrier parameters. The module ensures
+consistent parameter usage across integration schemes while allowing configuration
+overrides. It assumes SimConfig provides valid default values and that constants are
+accessed as class attributes.
+"""
+
 from __future__ import annotations
 
 from .sim_config import SimConfig
 from .hamsoft_constants import CHI_EPS
 from .softening_manager import _ABS_SOFTENING_FLOOR
 
-"""
-This module centralizes numerical constants and configuration defaults for the integration subsystem. The IntegratorConstants class uses a metaclass to provide attribute access with fallback values, sources defaults from SimConfig, and defines critical parameters like SPLIT_N_MAX, INITIAL_DT, SAFETY_FACTOR, and barrier parameters. The module ensures consistent parameter usage across integration schemes while allowing configuration overrides. It assumes SimConfig provides valid default values and that constants are accessed as class attributes.
 
-
-"""
 
 
 class _ICMeta(type):

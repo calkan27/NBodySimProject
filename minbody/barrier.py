@@ -1,13 +1,24 @@
+"""
+This module implements soft barrier potentials for constraining the softening parameter
+epsilon within specified bounds.
+
+The barrier_energy function computes a power-law repulsive potential that grows rapidly
+as epsilon approaches the boundaries, barrier_force provides the negative gradient
+(force) of this potential, and barrier_curvature calculates the second derivative for
+use in effective spring constant calculations. All functions handle scalar and array
+inputs uniformly through the _as_float_array helper, use configurable wall stiffness
+(k_wall) and exponent (n) parameters, and include extensive validation to return zero
+for invalid inputs. The module integrates with the Hamiltonian softening integrator to
+prevent epsilon from violating physical bounds during adaptive softening evolution. It
+assumes positive wall stiffness and integer exponents >= 2 for proper barrier behavior.
+"""
+
 from __future__ import annotations
 import numpy as np
 from typing import Union
 import math
 
-"""
-This module implements soft barrier potentials for constraining the softening parameter epsilon within specified bounds. The barrier_energy function computes a power-law repulsive potential that grows rapidly as epsilon approaches the boundaries, barrier_force provides the negative gradient (force) of this potential, and barrier_curvature calculates the second derivative for use in effective spring constant calculations. All functions handle scalar and array inputs uniformly through the _as_float_array helper, use configurable wall stiffness (k_wall) and exponent (n) parameters, and include extensive validation to return zero for invalid inputs. The module integrates with the Hamiltonian softening integrator to prevent epsilon from violating physical bounds during adaptive softening evolution. It assumes positive wall stiffness and integer exponents >= 2 for proper barrier behavior.
 
-
-"""
 
 
 

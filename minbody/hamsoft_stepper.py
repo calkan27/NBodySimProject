@@ -1,3 +1,16 @@
+"""
+This module implements the core stepping methods for the Hamiltonian softening
+integrator.
+
+The HamSoftStepper class provides s_half for half-step softening evolution, v_half_kick
+for velocity updates with current epsilon, t_drift for position updates, strang_step for
+complete Strang-split timesteps, and various specialized methods like s_full for
+testing. The implementation carefully manages the interplay between softening evolution
+and particle dynamics, handles both reflection and soft barrier boundary conditions, and
+maintains diagnostic information about each substep. It assumes the parent integrator
+provides valid force calculations and epsilon target functions.
+"""
+
 from __future__ import annotations
 import numpy as np
 from .hamsoft_flows import PhaseState, spring_oscillation
@@ -7,12 +20,7 @@ from .hamsoft_utils import reflect_if_needed, reflect_and_limit_eps
 from .hamsoft_flows import _osc_segment_update, _compute_eps_wall_hits, s_half_momentum_increment, pi_half_kick, s_flow
 from .potential import dU_d_eps as _dU_d_eps
 
-"""
-This module implements the core stepping methods for the Hamiltonian softening integrator. The HamSoftStepper class provides s_half for half-step softening evolution, v_half_kick for velocity updates with current epsilon, t_drift for position updates, strang_step for complete Strang-split timesteps, and various specialized methods like s_full for testing. The implementation carefully manages the interplay between softening evolution and particle dynamics, handles both reflection and soft barrier boundary conditions, and maintains diagnostic information about each substep. It assumes the parent integrator provides valid force calculations and epsilon target functions.
 
-
-
-"""
 
 
 

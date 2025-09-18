@@ -1,10 +1,18 @@
+"""
+This module implements Yoshida's fourth-order symplectic integrator.
+
+The Yoshida4Scheme class extends the Verlet scheme to fourth-order accuracy through a
+specific composition of Verlet steps with calculated coefficients. The implementation
+provides higher accuracy than standard Verlet at moderate additional cost, making it
+suitable for long-term integration requiring excellent energy conservation. It assumes
+timesteps are small enough for the fourth-order expansion to be valid and that the
+system benefits from higher-order accuracy.
+"""
+
 from __future__ import annotations
 from .integration_scheme_base import IntegrationScheme
 
-"""
-This module implements Yoshida's fourth-order symplectic integrator. The Yoshida4Scheme class extends the Verlet scheme to fourth-order accuracy through a specific composition of Verlet steps with calculated coefficients. The implementation provides higher accuracy than standard Verlet at moderate additional cost, making it suitable for long-term integration requiring excellent energy conservation. It assumes timesteps are small enough for the fourth-order expansion to be valid and that the system benefits from higher-order accuracy.
 
-"""
 
 class Yoshida4Scheme(IntegrationScheme):
     def _yoshida4(self, h: float) -> None:

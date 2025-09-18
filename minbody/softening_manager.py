@@ -1,3 +1,16 @@
+"""
+This critical module manages the evolution of gravitational softening parameters during
+simulation.
+
+The SofteningManager class tracks softening history with configurable buffer length,
+computes energy corrections from softening changes, coordinates with integrators for
+consistent updates, and supports both continuous and discrete softening updates. It
+provides sophisticated energy bookkeeping through Kahan summation, handles the interplay
+between adaptive algorithms and energy conservation, and maintains diagnostic
+information for analysis. The manager is central to the adaptive softening machinery and
+assumes close coordination with the simulation and integrator layers.
+"""
+
 from __future__ import annotations
 from collections.abc import Iterable
 from typing import List, Tuple
@@ -13,10 +26,7 @@ from .hamsoft_utils import dU_depsilon_plummer
 from collections import deque
 import numpy as _np
 
-"""
-This critical module manages the evolution of gravitational softening parameters during simulation. The SofteningManager class tracks softening history with configurable buffer length, computes energy corrections from softening changes, coordinates with integrators for consistent updates, and supports both continuous and discrete softening updates. It provides sophisticated energy bookkeeping through Kahan summation, handles the interplay between adaptive algorithms and energy conservation, and maintains diagnostic information for analysis. The manager is central to the adaptive softening machinery and assumes close coordination with the simulation and integrator layers.
 
-"""
 
 
 _DEFAULT_SYSTEM = object()

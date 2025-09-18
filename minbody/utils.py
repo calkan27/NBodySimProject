@@ -1,10 +1,18 @@
+"""
+This module provides helper functions for the codebase.
+
+Currently implements set_global_seed which synchronizes random number generators across
+numpy, Python's random module, and PyTorch (including CUDA), ensuring reproducible
+results across all components. The function also configures PyTorch backends for
+deterministic behavior when available. It assumes the random seed should affect all
+stochastic operations in the pipeline.
+"""
+
 import random
 import numpy as np
 import torch
 
-"""
-This module provides helper functions for the codebase. Currently implements set_global_seed which synchronizes random number generators across numpy, Python's random module, and PyTorch (including CUDA), ensuring reproducible results across all components. The function also configures PyTorch backends for deterministic behavior when available. It assumes the random seed should affect all stochastic operations in the pipeline.
-"""
+
 
 def set_global_seed(seed: int):
 	random.seed(seed)

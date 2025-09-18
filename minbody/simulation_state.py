@@ -1,3 +1,14 @@
+"""
+This module manages the internal state representation for N-body simulations.
+
+The SimulationState class maintains numpy arrays for positions, velocities, masses, and
+accelerations, provides property accessors with validation, handles state initialization
+from various input formats, and supports efficient state serialization/restoration. The
+implementation separates state management from simulation logic, enabling clean
+separation of concerns. It validates all state modifications for physical consistency
+and assumes state arrays maintain compatible dimensions throughout the simulation.
+"""
+
 from __future__ import annotations
 import numpy as np
 import copy
@@ -8,9 +19,7 @@ if TYPE_CHECKING:
     from .body import Body
 
 
-"""
-This module manages the internal state representation for N-body simulations. The SimulationState class maintains numpy arrays for positions, velocities, masses, and accelerations, provides property accessors with validation, handles state initialization from various input formats, and supports efficient state serialization/restoration. The implementation separates state management from simulation logic, enabling clean separation of concerns. It validates all state modifications for physical consistency and assumes state arrays maintain compatible dimensions throughout the simulation.
-"""
+
 
 class SimulationState:
 

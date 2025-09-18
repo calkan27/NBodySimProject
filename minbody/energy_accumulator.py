@@ -1,10 +1,20 @@
+"""
+This module implements a Kahan summation accumulator for tracking energy changes with
+high numerical precision.
+
+The EnergyAccumulator class uses compensated summation to minimize floating-point
+roundoff errors when accumulating many small energy deltas from softening changes,
+spring potential updates, and barrier interactions. It maintains separate accumulators
+for each energy component while tracking the total accumulated change. The
+implementation is critical for maintaining energy conservation in long simulations where
+standard floating-point addition would accumulate significant errors. It assumes all
+energy deltas are finite floating-point values.
+"""
+
 from __future__ import annotations
 from dataclasses import dataclass
 
-"""
-This module implements a Kahan summation accumulator for tracking energy changes with high numerical precision. The EnergyAccumulator class uses compensated summation to minimize floating-point roundoff errors when accumulating many small energy deltas from softening changes, spring potential updates, and barrier interactions. It maintains separate accumulators for each energy component while tracking the total accumulated change. The implementation is critical for maintaining energy conservation in long simulations where standard floating-point addition would accumulate significant errors. It assumes all energy deltas are finite floating-point values.
 
-"""
 
 @dataclass
 class _Kahan:

@@ -1,9 +1,19 @@
+"""
+This module defines neural network architectures for stability prediction.
+
+The MLP class implements a multi-layer perceptron with three fully connected layers
+(128-64-1 neurons), ReLU activations and dropout regularization (0.25 rate), and sigmoid
+output for binary classification. The make_mlp factory function creates models with
+configurable input dimensions. The architecture is designed for tabular feature inputs
+from the dynamics extractors, balancing expressiveness with regularization to prevent
+overfitting on limited simulation data. It assumes PyTorch is available and GPU support
+is optional.
+"""
+
 import torch
 import torch.nn as nn
 
-"""
-This module defines neural network architectures for stability prediction. The MLP class implements a multi-layer perceptron with three fully connected layers (128-64-1 neurons), ReLU activations and dropout regularization (0.25 rate), and sigmoid output for binary classification. The make_mlp factory function creates models with configurable input dimensions. The architecture is designed for tabular feature inputs from the dynamics extractors, balancing expressiveness with regularization to prevent overfitting on limited simulation data. It assumes PyTorch is available and GPU support is optional.
-"""
+
 
 class MLP(nn.Module):
 	def __init__(self, input_dim):

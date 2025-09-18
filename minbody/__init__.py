@@ -1,3 +1,17 @@
+"""
+This initialization file serves as the main entry point for the N-body simulation
+package, exposing all public APIs through a clean namespace.
+
+It imports and re-exports core simulation classes (Body, BodyView, NBodySimulation),
+integrators (Integrator, HamiltonianSofteningIntegrator), numerical solvers
+(UniversalVariableKeplerSolver), force calculations, softening management utilities,
+diagnostic tools, feature extractors for machine learning, stability analyzers, dataset
+utilities, and ML model training pipelines. The file establishes the package's public
+interface while maintaining internal module organization, allowing users to import any
+major component directly from the package root. It assumes all imported modules are
+properly implemented and follows Python packaging conventions for namespace management.
+"""
+
 from .utils import set_global_seed
 from .sim_config import SimConfig
 from .simulation_validator import SimulationValidator
@@ -57,12 +71,7 @@ from .model_zoo import MLP, make_mlp
 from .train_mlp import MLPTrainer
 from .train_lightgbm import main as train_lightgbm_main
 
-'''
-This initialization file serves as the main entry point for the N-body simulation package, exposing all public APIs through a clean namespace. It imports and re-exports core simulation classes (Body, BodyView, NBodySimulation), integrators (Integrator, HamiltonianSofteningIntegrator), numerical solvers (UniversalVariableKeplerSolver), force calculations, softening management utilities, diagnostic tools, feature extractors for machine learning, stability analyzers, dataset utilities, and ML model training pipelines. The file establishes the package's public interface while maintaining internal module organization, allowing users to import any major component directly from the package root. It assumes all imported modules are properly implemented and follows Python packaging conventions for namespace management.
 
-
-
-'''
 
 
 

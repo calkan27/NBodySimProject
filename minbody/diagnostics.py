@@ -1,3 +1,20 @@
+"""
+This module computes and monitors conserved quantities and system health metrics during
+N-body simulations.
+
+The Diagnostics class provides methods for calculating kinetic and potential energies
+with proper softening treatment, extended Hamiltonian for the ham_soft integrator
+including spring and barrier terms, angular and linear momentum, center of mass position
+and velocity, energy breakdowns by component, and per-step metrics including COM drift
+and momentum variance. It includes specialized support for high-precision energy
+calculations using extended precision arithmetic, energy conservation monitoring with
+configurable tolerance checking, and rate-limited diagnostic printing to avoid console
+spam. The module deeply integrates with both classical and Hamiltonian softening
+integrators, handling the different energy formulations required by each approach. It
+assumes access to simulation state through standardized interfaces and maintains
+internal caches for efficiency.
+"""
+
 from __future__ import annotations
 import itertools, math
 import numpy as np
@@ -8,10 +25,7 @@ from .geometry_cache import geometry_buffers
 if TYPE_CHECKING:                       
     from .integrator import Integrator  
 
-"""
-This module computes and monitors conserved quantities and system health metrics during N-body simulations. The Diagnostics class provides methods for calculating kinetic and potential energies with proper softening treatment, extended Hamiltonian for the ham_soft integrator including spring and barrier terms, angular and linear momentum, center of mass position and velocity, energy breakdowns by component, and per-step metrics including COM drift and momentum variance. It includes specialized support for high-precision energy calculations using extended precision arithmetic, energy conservation monitoring with configurable tolerance checking, and rate-limited diagnostic printing to avoid console spam. The module deeply integrates with both classical and Hamiltonian softening integrators, handling the different energy formulations required by each approach. It assumes access to simulation state through standardized interfaces and maintains internal caches for efficiency.
 
-"""
 
 
 
