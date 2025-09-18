@@ -17,7 +17,6 @@ import copy
 from .forces import _geometry, gravitational_force, dV_d_epsilon
 from .simulation_state import SimulationState
 
-
 """
 This core module implements the main NBodySimulation class that orchestrates the entire simulation. Key responsibilities include managing particle state (positions, velocities, masses), coordinating integration schemes (Verlet, Yoshida4, WHFast, ham_soft), handling adaptive softening through SofteningManager, providing state serialization and restoration, and maintaining energy conservation tracking. The class offers multiple initialization paths (Bodies, arrays, or restored states), interfaces with various integrators based on configuration, supports both fixed and adaptive timestepping, and provides comprehensive state introspection. It serves as the primary user interface for running simulations and assumes valid initial conditions and compatible configuration settings.
 

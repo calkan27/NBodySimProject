@@ -11,7 +11,6 @@ from .whfast_scheme import WHFastScheme
 from .diagnostics import Diagnostics
 from .hamsoft_flows import PhaseState
 
-
 """
 This central module implements the base Integrator class that coordinates timestepping for N-body simulations. Key responsibilities include managing adaptive and fixed timestep schemes, coordinating position updates (drift) and velocity updates (kick), maintaining geometric buffers for force calculations, interfacing with specialized integration schemes, and handling substep scheduling for stability. The class provides abstractions for different integration methods while maintaining common infrastructure for buffer management, timestep control, and diagnostic collection. It integrates with the TimestepManager for stability-based step subdivision and supports both classical and Hamiltonian softening approaches. The implementation assumes the simulation maintains valid particle data and configuration settings.
 

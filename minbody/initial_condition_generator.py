@@ -8,7 +8,6 @@ from .simulation import NBodySimulation
 from .diagnostics import Diagnostics
 from .physics_utils import remove_center_of_mass_velocity
 
-
 """
 This module generates diverse initial conditions for N-body simulations to train ML models. The InitialConditionGenerator class creates systems with configurable mass distributions (uniform or log-scale), position distributions (Gaussian with scale parameter), velocities based on virial equilibrium with perturbations, and proper center-of-mass frame adjustment. The GeneratorConfig dataclass encapsulates generation parameters. Methods include generate_single for individual systems, generate_batch for multiple systems, create_simulation for direct simulation instantiation, and validate_system for physics checks. The generator ensures physical validity through momentum conservation and energy consistency checks. It assumes positive masses and finite positions/velocities.
 

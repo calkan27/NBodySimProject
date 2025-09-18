@@ -3,7 +3,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from typing import Tuple
 
-
 """
 This module provides utilities for preparing datasets for machine learning training. The DataUtils class offers the split_and_scale static method which performs train/validation/test splitting with stratification, handles edge cases like single-class datasets or insufficient samples, applies StandardScaler normalization to features, and returns the scaler for later inference. The implementation carefully validates split ratios, checks class distributions for stratification feasibility, and provides informative warnings when stratification cannot be applied. It assumes input data is properly formatted as numpy arrays with matching lengths for features and labels.
 

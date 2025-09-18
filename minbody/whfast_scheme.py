@@ -2,7 +2,6 @@ from __future__ import annotations
 import numpy as np
 from .integration_scheme_base import IntegrationScheme
 
-
 """
 This module implements the Wisdom-Holman fast integration scheme for hierarchical N-body systems. The WHFastScheme class provides Kepler drift for Jacobi coordinate evolution, interaction potential calculations in the democratic heliocentric frame, and symplectic composition of Kepler and interaction steps. The implementation significantly accelerates integration for systems with dominant central masses by analytically solving the Keplerian motion. It requires a clear mass hierarchy and is incompatible with adaptive softening. The scheme assumes Jacobi coordinates are well-defined and that the system has a dominant central body.
 """

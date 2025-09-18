@@ -11,7 +11,6 @@ from .hamsoft_utils import reflect_if_needed
 from .potential import dU_d_eps as _dU_d_eps
 from .forces import dV_d_epsilon as _dVdeps
 
-
 """
 
 This module implements the symplectic flow maps for the Hamiltonian softening dynamics. Key components include the PhaseState dataclass encapsulating the extended phase space, spring_oscillation function for the harmonic oscillator evolution of epsilon, strang_softening_step for complete Strang-split timesteps, and auxiliary functions for momentum increments and wall collision detection. The implementation carefully preserves symplectic structure through exact solution of the harmonic oscillator, proper handling of barrier kicks at half-steps, and gradient-based momentum updates. The module includes sophisticated theta-angle calculations for small timesteps to maintain numerical precision. It assumes the integrator provides valid gradient functions and barrier parameters.

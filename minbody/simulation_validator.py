@@ -3,7 +3,6 @@ import math
 from typing import Sequence, Tuple
 import numpy as np
 
-
 """
 This module provides validation utilities for N-body simulation states. The SimulationValidator class offers static methods to check state validity (positive masses, finite values, correct dimensions) and report detailed diagnostics for invalid states. The validation covers all state components and helps identify configuration errors before simulation starts. It assumes states should represent physically meaningful configurations and provides informative error messages for debugging.
 

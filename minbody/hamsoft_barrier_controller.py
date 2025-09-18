@@ -2,7 +2,6 @@ from __future__ import annotations
 from .hamsoft_utils import symplectic_reflect_eps, reflect_if_needed
 import numpy as np
 
-
 """
 This module manages barrier interactions for the Hamiltonian softening integrator, implementing reflection boundary conditions for the softening parameter. The HamSoftBarrier class provides reflect_and_bounce for symplectic reflection at barriers during evolution, and reflect_if_active for instantaneous reflection checks. The implementation preserves the symplectic structure of the extended phase space by properly handling momentum reversal at boundaries. It integrates with the configuration system to respect barrier policy settings and disable flags. The module assumes the parent integrator maintains valid epsilon and pi values.
 
