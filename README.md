@@ -23,17 +23,8 @@ This repository couples a production-grade N-body integrator with the formal mat
 - **Dataset:** `data/training_data_clean.csv.gz`  
   Rows: 155,042; Cols: 91; Full rows: 130,042; Partial rows: 25,000.
 
-- **Training Data Report (Markdown):** `reports/training_data_report.md`  
+- **Training Data Report (Markdown):** `data/training_data_report.pdf`  
   A narrative walk-through of completeness, group composition, heavy-tail behavior, resonances, relationships, and the core correlation view—using the same figures under `reports/figures/`.
-
-- **Training Data Report (LaTeX):** `reports/training_data_report.tex`  
-  Build a PDF via `latexmk` or your preferred toolchain; figures referenced from `reports/figures/`.
-
-- **Compiled PDF snapshot:** `reports/report.pdf`  
-  Figure references (e.g., Full vs Partial on page 1, Group breakdown on page 2, period-ratio with resonances on page 4, correlation heatmap on page 6) match the Markdown/LaTeX. 
-
-- **CSV attachments:**  
-  `reports/metrics_summary.csv`, `reports/fill_ratios.csv`, `reports/plausibility_checks.csv`
 
 > Modeling note: keep `meta_partial` as a feature or stratification key; log/rank transforms help with the long-tailed energetic/chaotic features.
 
