@@ -21,12 +21,19 @@ This repository couples a production-grade N-body integrator with the formal mat
 ## Data & Reports
 
 - **Dataset:** `data/training_data_clean.csv.gz`  
-  Rows: 155,042; Cols: 91; Full rows: 130,042; Partial rows: 25,000.
+  Rows: 155,042; Cols: 91; Full rows: 130,042; Partial rows: 25,000.  
+  The partial subset is flagged via `meta_partial` and should be retained for stratification or targeted imputation.
 
-- **Training Data Report (Markdown):** `data/training_data_report.pdf`  
-  A narrative walk-through of completeness, group composition, heavy-tail behavior, resonances, relationships, and the core correlation.
-
-> Modeling note: keep `meta_partial` as a feature or stratification key; log/rank transforms help with the long-tailed energetic/chaotic features.
+- **Training Data Report (PDF):** `data/training_data_report.pdf`  
+  Key findings:
+  - **Cohort composition:** resonant (~113k), random (~25k), TTV systems (~10k), nonresonant (~6k) :contentReference[oaicite:0]{index=0}
+  - **Distributions:** energetic/kinetic features (`T_mean`, `V_mean`, `amd_norm`, `rem`) are heavy-tailed → log/rank transforms and robust scaling recommended :contentReference[oaicite:1]{index=1}
+  - **Resonances:** period-ratio histograms show alignment with canonical resonance lines :contentReference[oaicite:2]{index=2}
+  - **Group contrasts:** TTV systems skew large; random behaves as a low-variance baseline :contentReference[oaicite:3]{index=3}
+  - **Feature relationships:**  
+    - `amd_norm` vs. `rem`  
+    - Hill spacing vs. period ratio :contentReference[oaicite:4]{index=4}
+  - **Correlations:** heatmap shows coherent kinetic/energetic blocks, with moderate off-diagonal structure linking chaos/geometry features :contentReference[oaicite:5]{index=5}
 
 
 ---
