@@ -1,16 +1,45 @@
 # Adaptive-Softened N-Body Dynamics with Machine Learning
 
 ## Project Purpose
-
 This repository couples a production-grade N-body integrator with the formal mathematical framework presented in **Unified Theory of Adaptive-Softened N-Body Dynamics**. The project demonstrates a fixed-step, symmetric Strang-split integrator that **conserves linear and angular momentum exactly and bounds the drift of a modified Hamiltonian by O(h²)**—the main theorem.
 
-## Formal Proof
+---
 
-* **nbody_dynamics_proofs.pdf** – The typeset manuscript containing the full derivation and theorem statement, proving energy conservation properties and symplectic structure preservation under adaptive softening evolution.
+## Results (PDF)
+- **File:** `resultsNbody.pdf`  
+- **Headline metrics (hold-out / CV):**
+  - Balanced Accuracy ≈ **0.92**
+  - AUROC ≈ **0.95**
+  - Example operating point: TPR ≈ **0.93**, TNR ≈ **0.91**
+- **Physics validation:** Modified energy shows **O(h²)** scaling; long-run drift **10³–10⁴× lower** than a fixed-softening direct baseline at matched budget; exact linear & angular momentum conservation to machine precision.
+- **Model comparison:** MLP and LightGBM both reach ≈0.92 BA / ≈0.95 AUROC; signals dominated by chaos & geometry features (e.g., `r_min`, MEGNO).
+
+> See the PDF for the full confusion breakdown, ablations, and validation plots.
+
+---
+
+## Data & Attributes
+
+- **Training data (CSV.gz):** `data/training_data_clean.csv.gz`  
+  - Rows: **155,042**; Columns: **91**
+  - “Full” rows: **130,042** (`meta_partial=False`); “Partial” rows: **25,000** (`meta_partial=True`)
+  - Group composition (from `system_id`): `resonant` **113,543**; `random` **25,000**; `TTVsystems` **10,499**; `nonressystems` **6,000**
+
+- **Attributes report (HTML, single-file):** `reports/TRAINING_DATA_SINGLEFILE.html`  
+  - Bundles core and log-scaled distributions, group breakdowns, and period-ratio visuals.
+  - Use this for quick null checks, tail behavior, and sanity checks on resonant structure.
+
+> Tip: Keep `meta_partial` in your feature set to enable stratification or targeted imputation. Many features are long-tailed; log transforms or rank-normalizations are appropriate.
+
+---
+
+## Formal Proof
+- **nbody_dynamics_proofs.pdf** – Typeset manuscript with the full derivation and theorem statement (energy conservation properties and symplectic structure preservation under adaptive softening evolution).
+
+---
 
 ## Quick Start
-
-To run this N-body simulation and ML training pipeline, the main workflow involves three steps:
+To run the N-body simulation and ML training pipeline, the main workflow involves three steps:
 
 1. **Generate N-body simulation data** by running the ML training pipeline which creates diverse initial conditions (hierarchical systems, equal-mass polygons, close encounters) and analyzes their stability over time using multiple metrics (MEGNO, energy drift, escape detection).
 
@@ -20,13 +49,16 @@ To run this N-body simulation and ML training pipeline, the main workflow involv
 
 3. **Predict stability** of new N-body configurations using trained models, achieving 5+ orders of magnitude speedup over direct integration.
 
-## Key Features
+---
 
+## Key Features
 The simulation supports multiple integration schemes:
-- **Verlet**: Standard 2nd-order symplectic integrator
-- **Yoshida4**: 4th-order symplectic composition method
-- **WHFast**: Wisdom-Holman for hierarchical systems
+- **Verlet**: Standard 2nd-order symplectic integrator  
+- **Yoshida4**: 4th-order symplectic composition method  
+- **WHFast**: Wisdom-Holman for hierarchical systems  
 - **ham_soft**: Novel Hamiltonian softening integrator implementing the theoretical framework
+
+---
 
 ## Usage Examples
 ```python
