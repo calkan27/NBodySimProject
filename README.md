@@ -26,14 +26,15 @@ This repository couples a production-grade N-body integrator with the formal mat
 
 - **Training Data Report (PDF):** `data/training_data_report.pdf`  
   Key findings:
-  - **Cohort composition:** resonant (~113k), random (~25k), TTV systems (~10k), nonresonant (~6k) :contentReference[oaicite:0]{index=0}
-  - **Distributions:** energetic/kinetic features (`T_mean`, `V_mean`, `amd_norm`, `rem`) are heavy-tailed → log/rank transforms and robust scaling recommended :contentReference[oaicite:1]{index=1}
-  - **Resonances:** period-ratio histograms show alignment with canonical resonance lines :contentReference[oaicite:2]{index=2}
-  - **Group contrasts:** TTV systems skew large; random behaves as a low-variance baseline :contentReference[oaicite:3]{index=3}
+  - **Cohort composition:** resonant (~113k), random (~25k), TTV systems (~10k), nonresonant (~6k)
+  - **Distributions:** energetic/kinetic features (`T_mean`, `V_mean`, `amd_norm`, `rem`) are heavy-tailed → log/rank transforms and robust scaling recommended
+  - **Resonances:** period-ratio histograms show alignment with canonical resonance lines
+  - **Group contrasts:** TTV systems skew large; random behaves as a low-variance baseline
   - **Feature relationships:**  
     - `amd_norm` vs. `rem`  
-    - Hill spacing vs. period ratio :contentReference[oaicite:4]{index=4}
-  - **Correlations:** heatmap shows coherent kinetic/energetic blocks, with moderate off-diagonal structure linking chaos/geometry features :contentReference[oaicite:5]{index=5}
+    - Hill spacing vs. period ratio
+  - **Correlations:** heatmap shows coherent kinetic/energetic blocks, with moderate off-diagonal structure linking chaos/geometry features
+
 
 
 ---
